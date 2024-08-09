@@ -46,7 +46,7 @@
   const ATTEMPS = 10;
   const guesses = document.querySelector('.guesses');
   const lastResult = document.querySelector('.lastResult');
-  const lowOrHi = document.querySelector('lowOrHi');
+  const lowOrHi = document.querySelector('.lowOrHi');
   const guessSubmit = document.querySelector('.guessSubmit');
   const guessField = document.querySelector('.guessField');
 
@@ -73,17 +73,17 @@
     guesses.textContent += userGuess + ' ';
 
     if(userGuess === randomNumber) {
-      lastResult.textContent = '!!!Pérdistes!!!';
-      lastResult.style.backgroundColor = 'black';
+      lastResult.textContent = 'Felicitaciones! adivinaste el número!';
+      lastResult.style.backgroundColor = 'green';
       lowOrHi.textContent = '';
       setGameOver();
     } else if(guessCount === ATTEMPS) {
-      lastResult.textContent = 'Felicitaciones! adivinaste el número!';
+      lastResult.textContent = '!!!Perdiste!!!';
       lastResult.style.backgroundColor = 'red';
       setGameOver();
     } else {
       lastResult.textContent = 'Incorrecto! ';
-      lastResult.style.backgroundColor = 'green';
+      lastResult.style.backgroundColor = 'black';
       if(userGuess < randomNumber) {
         lowOrHi.textContent = 'El número es mayor!';
       } else if(userGuess > randomNumber) {
@@ -104,7 +104,8 @@
 	  resetButton = document.createElement('button');
 	  resetButton.textContent = 'Comienza un nuevo juego';
 	  document.body.appendChild(resetButton);
-	  resetButton.addeventListener('click', resetGame);
+    resetButton.addEventListener('click', resetGame);
+	  //resetButton.addeventListener('click', resetGame);
   }
 
   function resetGame() {
