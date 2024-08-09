@@ -64,3 +64,44 @@ let userGuess = Number(guessField.value);
        lastResult.style.backgroundColor = 'red';
        ```
 
+### Error 5: Evento click del boton de Ingresar el número estaba mal escrito así como el del limpiar
+-**Descripción del Error:**
+El evento click del botón estaba mal escrito, por tal motivo al ingresar un número a la caja de texto, este no era leido y no realizaba ninguna función
+
+**Solución:**
+- **Reescribir nuevamente la propiedad addeventListener** Se reescribio el evento del botón guessSummit y resetButton addeventListener a addEventListener
+```javascript
+guessSubmit.addEventListener('click', checkGuess);
+
+resetButton.addEventListener('click', resetGame);
+```
+
+### Error 6: Conversión de entrada 'userGuess'
+-**Descripción del Error:**
+El valor de entrada estaba definido como un string y no había sido convertido a número.
+
+**Solución:**
+- **Se convierte a valor numerico la cadena** el valor de entrada  userGuess se convierte a un valor numerico 
+```javascript
+let userGuess = Number(guessField.value);
+```
+
+### Error 7: `TypeError: Cannot set properties of null (Setting 'textContent')`
+-**Descripción del Error:**
+Este error ocurre cuando el código intenta acceder a una propiedad (`textContent`) de un elemento del DOM  que es `null`. El error se produce cuando se intenta asignar un valor a `lowOrHi.textContent`.
+
+-**Análisis:**
+El error indica que el elemento `lowOrHi` no está seleccionado correctamente en el DOM
+
+**Solución:**
+ 1. **Verificar la Clase:** Asegurarse de que el elemento `<p>` que se intenta seleccionar tenga correctamente la clase `lowOrHi`.
+  2. **Corrección en el HTML:** Asegurarse de que el elemento esté definido correctamente en el HTML:
+     ```html
+     <p class="lowOrHi"></p>
+     ```
+  3. **Verificación de Selección:** Confirmar que el selector es correcto y no contiene errores tipográficos:
+     ```javascript
+     const lowOrHi = document.querySelector('.lowOrHi');
+     ```
+
+
