@@ -33,3 +33,34 @@ let userGuess = Number(guessField.value);
        return;
      }
  ```
+
+ ### Error 3: La variable ATTEMPS estaba definida en 5
+ -**Descripción del error:**
+ La variable ATTEMP estaba asignada con el valor = 5 lo cual solo permitia 5 intententos al jugador y no cumplia con lo descrito en los requisitos que eran 10 intentos para adivinar el número.
+
+ -**Solución:**
+ - **Asignar la variable correctamente:** Se asigna a la variable el valor de 10.
+ ```javascript
+ const ATTEMPS = 10;
+ ```
+
+ ### Error 4: Colores Incorrectos en Mensajes
+ -**Descripción del Error:**
+ Los mensajes "Incorrecto El número es mayor o menor" también el de "Felicitaciones" y "Perdiste" tenian los colores incorrectos según los requisitos. Por ejemplo en incorrecto  estaba el color verde en lugar del negro
+
+ **Solución:**
+
+ **Modificar los Colores:** Cambiar los colores para que cumplan con los requsisitos:
+- **Mensaje de error:** 
+       ```javascript
+       lastResult.style.backgroundColor = 'black';
+       ```
+     - **Mensaje de victoria:** 
+       ```javascript
+       lastResult.style.backgroundColor = 'green';
+       ```
+     - **Mensaje de derrota:**
+       ```javascript
+       lastResult.style.backgroundColor = 'red';
+       ```
+
